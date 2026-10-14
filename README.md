@@ -1,27 +1,28 @@
 # Atlas Recruit
 
-Recruiting analytics for Brown Football. Live at [brownfootballmaps.org](https://brownfootballmaps.org).
+Recruiting analytics used daily by Brown Football's coaches and staff (25+ people) since fall 2025. Live at [brownfootballmaps.org](https://brownfootballmaps.org).
 
-Used daily by 25+ coaches and staff since fall 2025. Replaced 20+ hours a week of manual work.
-
-This repo is a write-up. The code is private.
+It replaced 20+ hours a week of manual work. This repo is a write-up; the code is private.
 
 ## What it does
-- Where Ivy and FCS players come from: 13,000+ players, 2015–2026.
-- Offer boards synced daily from the recruiting office's sheet.
-- Retention and market-share analysis.
-- A recruit-risk model.
-- A chatbot over the data.
+- **Maps** where Ivy and FCS players come from: 13,000+ players, 2015–2026.
+- **Offer boards** synced daily from the recruiting office's sheet.
+- **Retention and market share** by region and program.
+- **Recruit-risk model.**
+- **Chatbot** over all of the above.
 
-## How it's built
-1. **App.** Next.js 16, React 19 and TypeScript on Vercel. One map component with modes (heat, counties, clusters, dots) over Mapbox GL and deck.gl.
-2. **Data pipeline.** A daily GitHub Action pulls the offers sheet, geocodes only new schools, and keeps hand-audited coordinates.
-3. **Rosters.** Roster history scraped each year, with identity resolution across seasons and tests for it.
+## How it works
+1. **One map, many modes.** A single component switches between heat, county, cluster and dot views over Mapbox GL and deck.gl.
+2. **Daily pipeline.** A GitHub Action pulls the offers sheet, geocodes only new schools, and keeps hand-audited coordinates.
+3. **Roster history.** Rosters are scraped each year, with tested identity resolution across seasons.
 4. **Chatbot.** Claude API, with Upstash Redis for feedback and state.
-5. **Program as config.** A new program is a config, not a fork. Built to expand to CAA, Patriot League and MVFC schools with their own recruiting boards.
+5. **Program as config.** A new school is a config, not a fork. Built to expand to CAA, Patriot League and MVFC programs with their own recruiting boards.
+
+## Stack
+Next.js 16, React 19, TypeScript, Tailwind, Mapbox GL, deck.gl, Claude API, Upstash Redis, GitHub Actions, Vercel.
 
 ## History
-Cold-approached the recruiting office as a freshman. Pitched the head coach two months later. v2 built by Archer, v3 (production) by me.
+I cold-approached the recruiting office as a freshman and pitched the head coach two months later. Archer built v2; I built v3, the production version.
 
 ## Why it's private
 The repo carries the program's recruiting board. Ask me for a walkthrough.
